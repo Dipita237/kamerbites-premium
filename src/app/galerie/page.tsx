@@ -1,10 +1,33 @@
+import Image from "next/image";
+import { galleryImages } from "@/data/gallery";
+
 export default function GaleriePage() {
   return (
-    <section className="mx-auto flex max-w-6xl flex-col items-center px-4 py-24 text-center sm:px-6">
-      <h1 className="text-4xl font-semibold sm:text-5xl">Galerie</h1>
-      <p className="mt-4 max-w-xl text-base text-charcoal/70 sm:text-lg">
-        La galerie arrive bientôt.
-      </p>
+    <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+      <div className="text-center">
+        <h1 className="text-4xl font-semibold sm:text-5xl">Galerie</h1>
+        <p className="mt-4 text-base text-charcoal/70 sm:text-lg">
+          Plats, ambiance, moments partagés — un aperçu de l&apos;expérience
+          KamerBites.
+        </p>
+      </div>
+
+      <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+        {galleryImages.map((image) => (
+          <div
+            key={image.id}
+            className="relative aspect-square overflow-hidden rounded-lg bg-charcoal/5"
+          >
+            <Image
+              src={image.src}
+              alt={image.alt}
+              fill
+              sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
+              className="object-cover"
+            />
+          </div>
+        ))}
+      </div>
     </section>
   );
 }
