@@ -1,6 +1,13 @@
 import Image from "next/image";
 import { galleryImages } from "@/data/gallery";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Galerie | KamerBites",
+  description: "Découvrez en images l'ambiance et les plats de KamerBites.",
+};
+
 export default function GaleriePage() {
   return (
     <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
@@ -31,7 +38,6 @@ export default function GaleriePage() {
             />
           </div>
         ))}
-      </div>
-    </section>
+      </div>    </section>
   );
 }

@@ -1,5 +1,14 @@
 import ReservationForm from "@/components/reservation/ReservationForm";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Réservation | KamerBites",
+  description:
+    "Réservez votre table chez KamerBites, restaurant à Bastos, Yaoundé.",
+};
+
+
 export default function ReservationPage() {
   return (
     <section className="mx-auto max-w-2xl px-4 py-16 sm:px-6">

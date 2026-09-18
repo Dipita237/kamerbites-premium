@@ -21,6 +21,15 @@ const values = [
   },
 ];
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Notre Histoire | KamerBites",
+  description:
+    "Découvrez l'histoire de KamerBites, restaurant premium à Bastos, Yaoundé.",
+};
+
+
 export default function NotreHistoirePage() {
   return (
     <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
