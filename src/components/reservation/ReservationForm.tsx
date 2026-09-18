@@ -10,6 +10,7 @@ type FormValues = {
   telephone: string;
   email: string;
   message: string;
+  societe: string;
 };
 
 const initialValues: FormValues = {
@@ -20,6 +21,7 @@ const initialValues: FormValues = {
   telephone: "",
   email: "",
   message: "",
+  societe: "",
 };
 
 export default function ReservationForm() {
@@ -54,6 +56,12 @@ export default function ReservationForm() {
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
+    if (values.societe) {
+      setSubmitted(true);
+      return;
+    }
+
     if (validate()) {
       setSubmitted(true);
     }
@@ -63,8 +71,8 @@ export default function ReservationForm() {
     return (
       <div className="rounded-lg border border-copper/30 bg-copper/5 p-6 text-center">
         <p className="font-medium text-charcoal">
-          Merci, {values.nom} ! Votre demande de réservation a bien été
-          reçue.
+          Merci, {values.nom || "et bienvenue"} ! Votre demande de
+          réservation a bien été reçue.
         </p>
         <p className="mt-2 text-sm text-charcoal/70">
           Nous vous confirmerons votre réservation sous peu.
@@ -75,6 +83,17 @@ export default function ReservationForm() {
 
   return (
     <form onSubmit={handleSubmit} noValidate className="space-y-5">
+      <input
+        type="text"
+        name="societe"
+        value={values.societe}
+        onChange={handleChange}
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="absolute -left-[9999px] h-0 w-0 opacity-0"
+      />
+
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="date" className="text-sm font-medium">
