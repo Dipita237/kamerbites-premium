@@ -28,7 +28,7 @@ export default function FeaturedDishes() {
             <p className="text-xs font-semibold tracking-[0.2em] text-copper">
               NOS PLATS SIGNATURES
             </p>
-            <h2 className="mt-2 text-3xl font-bold text-charcoal sm:text-4xl">
+            <h2 className="font-display mt-2 text-3xl font-bold text-charcoal sm:text-4xl">
               Des recettes emblématiques, revisitées avec passion.
             </h2>
           </div>

@@ -1,10 +1,45 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Comfortaa";
+  src: url("/fonts/comfortaa/comfortaa-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Comfortaa";
+  src: url("/fonts/comfortaa/comfortaa-500.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Comfortaa";
+  src: url("/fonts/comfortaa/comfortaa-600.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Comfortaa";
+  src: url("/fonts/comfortaa/comfortaa-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   --color-cream: #fffaf2;
   --color-charcoal: #141414;
   --color-copper: #e65100;
   --color-copper-dark: #d35400;
+
+  --font-display: "Comfortaa", Arial, Helvetica, sans-serif;
+  --font-body: Arial, Helvetica, sans-serif;
 }
 
 * {
@@ -20,5 +55,5 @@ body {
   min-height: 100vh;
   background: var(--color-cream);
   color: var(--color-charcoal);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
 }

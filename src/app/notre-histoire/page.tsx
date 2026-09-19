@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 export default function NotreHistoirePage() {
   return (
     <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
-      <h1 className="text-center text-4xl font-semibold sm:text-5xl">
+      <h1 className="font-display text-center text-4xl font-semibold sm:text-5xl">
         Notre Histoire
       </h1>
 

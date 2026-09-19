@@ -8,7 +8,7 @@ export default function Testimonials() {
           <p className="text-xs font-semibold tracking-[0.2em] text-copper">
             TÉMOIGNAGES
           </p>
-          <h2 className="mt-2 text-3xl font-bold text-charcoal sm:text-4xl">
+         <h2 className="font-display mt-2 text-3xl font-bold text-charcoal sm:text-4xl">
             Ils ont aimé
           </h2>
         </div>
