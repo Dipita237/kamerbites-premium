@@ -12,9 +12,7 @@ export default function GaleriePage() {
   return (
     <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
       <div className="text-center">
-        <h1 className="text-4xl font-semibold sm:text-5xl">
-          Galerie
-        </h1>
+        <h1 className="font-display text-4xl font-semibold sm:text-5xl">Galerie</h1>
 
         <p className="mt-4 text-base text-charcoal/70 sm:text-lg">
           Plats, ambiance, moments partagés — un aperçu de l&apos;expérience

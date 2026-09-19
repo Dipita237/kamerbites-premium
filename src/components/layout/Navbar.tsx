@@ -9,7 +9,7 @@ export default function Navbar() {
         <Link href="/" className="flex items-center gap-3">
           <LogoMark size={44} />
           <div>
-            <p className="text-xl font-semibold tracking-wide">KamerBites</p>
+            <p className="font-display text-xl font-semibold tracking-wide">KamerBites</p>
             <p className="text-xs text-cream/70">
               Cuisine Camerounaise • Yaoundé
             </p>

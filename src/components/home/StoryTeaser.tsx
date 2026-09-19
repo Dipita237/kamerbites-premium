@@ -19,7 +19,7 @@ export default function StoryTeaser() {
           <p className="text-xs font-semibold tracking-[0.2em] text-copper">
             NOTRE HISTOIRE
           </p>
-          <h2 className="mt-2 text-3xl font-bold text-charcoal sm:text-4xl">
+          <h2 className="font-display mt-2 text-3xl font-bold text-charcoal sm:text-4xl">
             Plus qu&apos;un repas. C&apos;est le Cameroun.
           </h2>
           <p className="mt-4 max-w-md text-base text-charcoal/70">

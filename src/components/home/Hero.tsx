@@ -32,7 +32,7 @@ export default function Hero() {
           </p>
 
           {/* Main heading */}
-          <h1 className="max-w-xl text-5xl font-bold leading-[1.05] tracking-tight text-cream sm:text-6xl lg:text-7xl">
+          <h1 className="font-display max-w-xl text-5xl font-bold leading-[1.05] tracking-tight text-cream sm:text-6xl lg:text-7xl">
             Le goût du Cameroun,
             <span className="block text-copper">
               réinventé.
