@@ -7,6 +7,7 @@ export type MenuCategory =
   | "Desserts"
   | "Boissons";
 
+
 export type MenuItem = {
   id: string;
   name: string;
@@ -15,6 +16,7 @@ export type MenuItem = {
   category: MenuCategory;
   dietary: DietaryTag[];
   image?: string;
+  isFeatured?: boolean;
 };
 
 export const dietaryLabels: Record<DietaryTag, string> = {
@@ -97,6 +99,7 @@ export const menuItems: MenuItem[] = [
     category: "Plats principaux",
     dietary: ["epice"],
     image: "/images/menu/ndole.jpg",
+    isFeatured: true,
   },
   {
     id: "poulet-dg",
@@ -106,6 +109,7 @@ export const menuItems: MenuItem[] = [
     category: "Plats principaux",
     dietary: ["halal", "epice"],
     image: "/images/menu/poulet-dg.jpg",
+    isFeatured: true,
   },
   {
     id: "eru",
@@ -115,6 +119,7 @@ export const menuItems: MenuItem[] = [
     category: "Plats principaux",
     dietary: ["sans-gluten"],
     image: "/images/menu/eru.jpg",
+    isFeatured: true,
   },
   {
     id: "poisson-braise",
@@ -124,6 +129,7 @@ export const menuItems: MenuItem[] = [
     category: "Plats principaux",
     dietary: ["sans-gluten"],
     image: "/images/menu/poisson-braise.jpg",
+    isFeatured: true,
   },
   {
     id: "koki-de-mais",
@@ -133,6 +139,7 @@ export const menuItems: MenuItem[] = [
     category: "Plats principaux",
     dietary: ["vegetarien", "sans-gluten"],
     image: "/images/menu/koki-de-mais.jpg",
+    isFeatured: true,
   },
   {
     id: "riz-gras",
@@ -142,6 +149,7 @@ export const menuItems: MenuItem[] = [
     category: "Plats principaux",
     dietary: ["sans-gluten"],
     image: "/images/menu/riz-gras.jpg",
+    isFeatured: true,
   },
   {
     id: "soupe-de-gombo",
@@ -150,6 +158,7 @@ export const menuItems: MenuItem[] = [
     price: 9500,
     category: "Plats principaux",
     dietary: ["epice"],
+    isFeatured: true,
   },
   {
     id: "steak-grille",
