@@ -17,6 +17,7 @@ export type MenuItem = {
   dietary: DietaryTag[];
   image?: string;
   isFeatured?: boolean;
+  isChefsChoice?: boolean;
 };
 
 export const dietaryLabels: Record<DietaryTag, string> = {
@@ -91,15 +92,16 @@ export const menuItems: MenuItem[] = [
     image: "/images/menu/beignets-haricots.jpg",
   },
   // Plats principaux
-  {
+    {
     id: "ndole",
     name: "Ndolé",
-    description: "Feuilles de ndolé, arachides, bœuf, plantain.",
+    description: "Feuilles de ndolé, arachides, bœuf,   plantain.",
     price: 12000,
     category: "Plats principaux",
     dietary: ["epice"],
     image: "/images/menu/ndole.jpg",
     isFeatured: true,
+    isChefsChoice: true,
   },
   {
     id: "poulet-dg",
