@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import LogoMark from "./LogoMark";
+import ShimmerButton from "../ui/ShimmerButton";
 
 export default function Navbar() {
   return (
@@ -44,12 +45,12 @@ export default function Navbar() {
         </nav>
 
         {/* CTA with Lift-up Hover Effect */}
-        <Link
+        <ShimmerButton
           href="/reservation"
           className="rounded-full bg-copper px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:bg-copper-dark hover:-translate-y-1 hover:shadow-lg hover:shadow-copper/20"
         >
           Réserver une table
-        </Link>
+        </ShimmerButton>
       </div>
     </header>
   );
