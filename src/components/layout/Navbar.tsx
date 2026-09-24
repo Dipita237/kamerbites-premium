@@ -1,41 +1,52 @@
+"use client";
+
 import Link from "next/link";
 import LogoMark from "./LogoMark";
 
 export default function Navbar() {
   return (
-    <header className="bg-charcoal text-cream">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
-        {/* Brand */}
-        <Link href="/" className="flex items-center gap-3">
+    <header className="absolute top-0 left-0 w-full z-50 bg-transparent text-cream">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-6 sm:px-6">
+        
+        <Link href="/" className="flex items-center gap-3 group transition-transform duration-300 hover:scale-[1.02]">
           <LogoMark size={44} />
           <div>
-            <p className="font-display text-xl font-semibold tracking-wide">KamerBites</p>
-            <p className="text-xs text-cream/70">
+            <p className="font-display text-xl font-bold tracking-wide transition-colors group-hover:text-copper">
+              KamerBites
+            </p>
+            <p className="text-[10px] sm:text-xs text-cream/60 tracking-wider">
               Cuisine Camerounaise • Yaoundé
             </p>
           </div>
         </Link>
 
-        {/* Desktop nav links - hidden on small screens for now */}
-        <nav className="hidden items-center gap-6 sm:flex">
-          <Link href="/" className="text-sm hover:text-copper">
-            Accueil
-          </Link>
-          <Link href="/menu" className="text-sm hover:text-copper">
-            Menu
-          </Link>
-          <Link href="/notre-histoire" className="text-sm hover:text-copper">
-            Notre Histoire
-          </Link>
-          <Link href="/galerie" className="text-sm hover:text-copper">
-            Galerie
-          </Link>
+        {/* Navigation links with smooth expanding orange under-borders */}
+        <nav className="hidden items-center gap-8 sm:flex font-medium">
+          {["Accueil", "Menu", "Notre Histoire", "Galerie"].map((item) => {
+            const paths: Record<string, string> = {
+              "Accueil": "/",
+              "Menu": "/menu",
+              "Notre Histoire": "/notre-histoire",
+              "Galerie": "/galerie"
+            };
+            return (
+              <Link 
+                key={item}
+                href={paths[item]} 
+                className="relative text-sm tracking-wide text-cream/90 transition-colors duration-300 hover:text-white group"
+              >
+                {item}
+                {/* The smooth orange border that draws itself under the link */}
+                <span className="absolute left-1/2 bottom-[-6px] w-0 h-[2px] bg-copper transition-all duration-300 ease-out group-hover:w-full group-hover:left-0" />
+              </Link>
+            );
+          })}
         </nav>
 
-        {/* CTA - always visible */}
+        {/* CTA with Lift-up Hover Effect */}
         <Link
           href="/reservation"
-          className="rounded-md bg-copper px-4 py-2 text-sm font-medium text-cream hover:bg-copper-dark"
+          className="rounded-full bg-copper px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:bg-copper-dark hover:-translate-y-1 hover:shadow-lg hover:shadow-copper/20"
         >
           Réserver une table
         </Link>

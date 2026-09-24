@@ -24,7 +24,6 @@ export default function FeaturedDishes() {
 
       if (prefersReducedMotion) return;
 
-      // Animates the inner wrapper safely without framework interference
       gsap.from(".featured-card", {
         opacity: 0,
         y: 24,
@@ -84,10 +83,9 @@ export default function FeaturedDishes() {
           </div>
         </div>
 
-        {/* Added explicit right-padding hack (pr-6) so the last card doesn't hit the screen edge */}
         <div
           ref={scrollRef}
-          className="mt-10 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-6 pr-6 scrollbar-none [&::-webkit-scrollbar]:hidden"
+          className="mt-10 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-6 pr-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
           {featured.map((item) => (
             <Link
@@ -97,7 +95,7 @@ export default function FeaturedDishes() {
                 item.isChefsChoice ? "w-80 sm:w-104" : "w-64 sm:w-72"
               }`}
             >
-              {/* Inner wrapper target for GSAP animation */}
+              {/* Inner wrapper target for GSAP animation layer */}
               <div className="featured-card relative h-full w-full">
                 {item.image && (
                   <Image
@@ -113,7 +111,6 @@ export default function FeaturedDishes() {
                   />
                 )}
 
-                {/* Deeper gradient mix for better readability on lighter images */}
                 <div className="absolute inset-0 bg-linear-to-t from-black via-black/60 to-transparent transition-opacity duration-300 group-hover:via-black/70" />
 
                 {item.isChefsChoice && (
