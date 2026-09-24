@@ -56,12 +56,10 @@ export default function ReservationForm() {
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-
     if (values.societe) {
       setSubmitted(true);
       return;
     }
-
     if (validate()) {
       setSubmitted(true);
     }
@@ -69,20 +67,21 @@ export default function ReservationForm() {
 
   if (submitted) {
     return (
-      <div className="rounded-lg border border-copper/30 bg-copper/5 p-6 text-center">
-        <p className="font-medium text-charcoal">
-          Merci, {values.nom || "et bienvenue"} ! Votre demande de
-          réservation a bien été reçue.
+      <div className="rounded-2xl border border-copper/30 bg-copper/5 p-8 text-center max-w-xl mx-auto shadow-md">
+        <div className="text-3xl mb-3">✨</div>
+        <p className="font-display font-bold text-lg text-charcoal">
+          Merci, {values.nom || "et bienvenue"} !
         </p>
-        <p className="mt-2 text-sm text-charcoal/70">
-          Nous vous confirmerons votre réservation sous peu.
+        <p className="mt-2 text-sm text-charcoal/80">
+          Votre demande de réservation a bien été reçue. Nous vous confirmerons votre table sous peu par SMS ou email.
         </p>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="space-y-5">
+    <form onSubmit={handleSubmit} noValidate className="space-y-6 max-w-4xl mx-auto">
+      {/* Honeypot hidden container for blocking malicious tracking bots */}
       <input
         type="text"
         name="societe"
@@ -94,110 +93,131 @@ export default function ReservationForm() {
         className="absolute left-[9999px] h-0 w-0 opacity-0"
       />
 
-      <div className="grid gap-5 sm:grid-cols-2">
-        <div>
-          <label htmlFor="date" className="text-sm font-medium">
+      <div className="grid gap-6 sm:grid-cols-2">
+        <div className="flex flex-col">
+          <label htmlFor="date" className="text-xs font-bold tracking-wider text-charcoal/60 uppercase mb-2">
             Date
           </label>
-          <input
-            id="date"
-            name="date"
-            type="date"
-            value={values.date}
-            onChange={handleChange}
-            className="mt-1 w-full rounded-md border border-charcoal/20 px-3 py-2 text-sm"
-          />
-          {errors.date && <p className="mt-1 text-xs text-red-600">{errors.date}</p>}
+          <div className="relative">
+            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-charcoal/40 text-sm">📅</span>
+            <input
+              id="date"
+              name="date"
+              type="date"
+              value={values.date}
+              onChange={handleChange}
+              className="w-full pl-10 pr-4 py-3 bg-white border border-charcoal/10 rounded-xl text-sm focus:outline-none focus:border-copper/50 transition-colors"
+            />
+          </div>
+          {errors.date && <p className="mt-1.5 text-xs font-medium text-red-600">{errors.date}</p>}
         </div>
 
-        <div>
-          <label htmlFor="heure" className="text-sm font-medium">
+        <div className="flex flex-col">
+          <label htmlFor="heure" className="text-xs font-bold tracking-wider text-charcoal/60 uppercase mb-2">
             Heure
           </label>
-          <input
-            id="heure"
-            name="heure"
-            type="time"
-            value={values.heure}
-            onChange={handleChange}
-            className="mt-1 w-full rounded-md border border-charcoal/20 px-3 py-2 text-sm"
-          />
-          {errors.heure && <p className="mt-1 text-xs text-red-600">{errors.heure}</p>}
+          <div className="relative">
+            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-charcoal/40 text-sm">🕒</span>
+            <input
+              id="heure"
+              name="heure"
+              type="time"
+              value={values.heure}
+              onChange={handleChange}
+              className="w-full pl-10 pr-4 py-3 bg-white border border-charcoal/10 rounded-xl text-sm focus:outline-none focus:border-copper/50 transition-colors"
+            />
+          </div>
+          {errors.heure && <p className="mt-1.5 text-xs font-medium text-red-600">{errors.heure}</p>}
         </div>
       </div>
 
-      <div>
-        <label htmlFor="personnes" className="text-sm font-medium">
+      <div className="flex flex-col">
+        <label htmlFor="personnes" className="text-xs font-bold tracking-wider text-charcoal/60 uppercase mb-2">
           Nombre de personnes
         </label>
-        <select
-          id="personnes"
-          name="personnes"
-          value={values.personnes}
-          onChange={handleChange}
-          className="mt-1 w-full rounded-md border border-charcoal/20 px-3 py-2 text-sm"
-        >
-          {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
-            <option key={n} value={n}>
-              {n} {n === 1 ? "personne" : "personnes"}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      <div>
-        <label htmlFor="nom" className="text-sm font-medium">
-          Nom complet
-        </label>
-        <input
-          id="nom"
-          name="nom"
-          type="text"
-          value={values.nom}
-          onChange={handleChange}
-          className="mt-1 w-full rounded-md border border-charcoal/20 px-3 py-2 text-sm"
-        />
-        {errors.nom && <p className="mt-1 text-xs text-red-600">{errors.nom}</p>}
-      </div>
-
-      <div className="grid gap-5 sm:grid-cols-2">
-        <div>
-          <label htmlFor="telephone" className="text-sm font-medium">
-            Téléphone
-          </label>
-          <input
-            id="telephone"
-            name="telephone"
-            type="tel"
-            value={values.telephone}
+        <div className="relative">
+          <span className="absolute left-4 top-1/2 -translate-y-1/2 text-charcoal/40 text-sm">👥</span>
+          <select
+            id="personnes"
+            name="personnes"
+            value={values.personnes}
             onChange={handleChange}
-            placeholder="+237 6XX XXX XXX"
-            className="mt-1 w-full rounded-md border border-charcoal/20 px-3 py-2 text-sm"
+            className="w-full pl-10 pr-4 py-3 bg-white border border-charcoal/10 rounded-xl text-sm focus:outline-none focus:border-copper/50 transition-colors appearance-none"
+          >
+            {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
+              <option key={n} value={n}>
+                {n} {n === 1 ? "personne" : "personnes"}
+              </option>
+            ))}
+          </select>
+          <span className="absolute right-4 top-1/2 -translate-y-1/2 text-charcoal/40 pointer-events-none text-xs">▼</span>
+        </div>
+      </div>
+
+      <div className="flex flex-col">
+        <label htmlFor="nom" className="text-xs font-bold tracking-wider text-charcoal/60 uppercase mb-2">
+          Votre nom complet
+        </label>
+        <div className="relative">
+          <span className="absolute left-4 top-1/2 -translate-y-1/2 text-charcoal/40 text-sm">👤</span>
+          <input
+            id="nom"
+            name="nom"
+            type="text"
+            value={values.nom}
+            onChange={handleChange}
+            placeholder="Jean Dupont"
+            className="w-full pl-10 pr-4 py-3 bg-white border border-charcoal/10 rounded-xl text-sm focus:outline-none focus:border-copper/50 transition-colors"
           />
+        </div>
+        {errors.nom && <p className="mt-1.5 text-xs font-medium text-red-600">{errors.nom}</p>}
+      </div>
+
+      <div className="grid gap-6 sm:grid-cols-2">
+        <div className="flex flex-col">
+          <label htmlFor="telephone" className="text-xs font-bold tracking-wider text-charcoal/60 uppercase mb-2">
+            Téléphone / Mobile
+          </label>
+          <div className="relative">
+            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-charcoal/40 text-sm">📞</span>
+            <input
+              id="telephone"
+              name="telephone"
+              type="tel"
+              value={values.telephone}
+              onChange={handleChange}
+              placeholder="+237 6XX XXX XXX"
+              className="w-full pl-10 pr-4 py-3 bg-white border border-charcoal/10 rounded-xl text-sm focus:outline-none focus:border-copper/50 transition-colors"
+            />
+          </div>
           {errors.telephone && (
-            <p className="mt-1 text-xs text-red-600">{errors.telephone}</p>
+            <p className="mt-1.5 text-xs font-medium text-red-600">{errors.telephone}</p>
           )}
         </div>
 
-        <div>
-          <label htmlFor="email" className="text-sm font-medium">
-            Email
+        <div className="flex flex-col">
+          <label htmlFor="email" className="text-xs font-bold tracking-wider text-charcoal/60 uppercase mb-2">
+            Adresse Email
           </label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            value={values.email}
-            onChange={handleChange}
-            className="mt-1 w-full rounded-md border border-charcoal/20 px-3 py-2 text-sm"
-          />
-          {errors.email && <p className="mt-1 text-xs text-red-600">{errors.email}</p>}
+          <div className="relative">
+            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-charcoal/40 text-sm">✉️</span>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              value={values.email}
+              onChange={handleChange}
+              placeholder="exemple@domaine.com"
+              className="w-full pl-10 pr-4 py-3 bg-white border border-charcoal/10 rounded-xl text-sm focus:outline-none focus:border-copper/50 transition-colors"
+            />
+          </div>
+          {errors.email && <p className="mt-1.5 text-xs font-medium text-red-600">{errors.email}</p>}
         </div>
       </div>
 
-      <div>
-        <label htmlFor="message" className="text-sm font-medium">
-          Message (facultatif)
+      <div className="flex flex-col">
+        <label htmlFor="message" className="text-xs font-bold tracking-wider text-charcoal/60 uppercase mb-2">
+          Notes ou demandes particulières (facultatif)
         </label>
         <textarea
           id="message"
@@ -205,16 +225,22 @@ export default function ReservationForm() {
           rows={3}
           value={values.message}
           onChange={handleChange}
-          className="mt-1 w-full rounded-md border border-charcoal/20 px-3 py-2 text-sm"
+          placeholder="Allergies, choix de table, anniversaire..."
+          className="w-full px-4 py-3 bg-white border border-charcoal/10 rounded-xl text-sm focus:outline-none focus:border-copper/50 transition-colors resize-none"
         />
       </div>
 
-      <button
-        type="submit"
-        className="w-full rounded-md bg-copper px-4 py-3 text-sm font-medium text-cream hover:bg-copper-dark sm:w-auto"
-      >
-        Réserver ma table
-      </button>
+      <div className="pt-4 flex flex-col items-center gap-3">
+        <button
+          type="submit"
+          className="w-full rounded-full bg-copper px-10 py-3.5 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:bg-copper-dark hover:-translate-y-0.5 hover:shadow-copper/20"
+        >
+          Réserver ma table
+        </button>
+        <p className="text-[11px] text-charcoal/50 flex items-center gap-1.5">
+          <span>🔒</span> Nous vous confirmerons votre réservation sous peu.
+        </p>
+      </div>
     </form>
   );
 }
